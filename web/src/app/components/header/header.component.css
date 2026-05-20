@@ -1,0 +1,211 @@
+.site-header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,.08);
+}
+
+/* ── Announcement bar ─────────────────────────────────── */
+.announcement-bar {
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  overflow: hidden;
+  padding: 7px 0;
+}
+
+.announcement-track {
+  display: flex;
+  gap: 24px;
+  white-space: nowrap;
+  animation: scroll-left 28s linear infinite;
+}
+
+.separator {
+  color: #c9a96e;
+}
+
+@keyframes scroll-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── Navbar ───────────────────────────────────────────── */
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0 40px;
+  height: 70px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Logo */
+.logo {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: .18em;
+  color: #1a1a1a;
+  text-decoration: none;
+  flex-shrink: 0;
+  text-transform: uppercase;
+}
+
+.logo:hover {
+  color: #c9a96e;
+}
+
+/* Buscador */
+.search-bar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: border-color .2s;
+}
+
+.search-bar:focus-within {
+  border-color: #1a1a1a;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  font-size: 14px;
+  background: transparent;
+  color: #1a1a1a;
+}
+
+.search-input::placeholder {
+  color: #aaa;
+}
+
+.search-btn {
+  padding: 10px 14px;
+  background: #1a1a1a;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s;
+}
+
+.search-btn:hover {
+  background: #c9a96e;
+}
+
+/* Acciones */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* Botón auth */
+.btn-auth {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: transparent;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #1a1a1a;
+  font-weight: 500;
+  transition: border-color .2s, color .2s;
+  white-space: nowrap;
+}
+
+.btn-auth:hover {
+  border-color: #1a1a1a;
+  color: #1a1a1a;
+}
+
+/* Botón carrito */
+.btn-cart {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  background: #1a1a1a;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #fff;
+  transition: background .2s;
+}
+
+.btn-cart:hover {
+  background: #c9a96e;
+}
+
+.cart-icon-wrapper {
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #c9a96e;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.2;
+}
+
+.cart-label {
+  font-size: 11px;
+  opacity: .8;
+}
+
+.cart-total {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 16px;
+    gap: 12px;
+  }
+
+  .btn-auth span {
+    display: none;
+  }
+
+  .cart-info {
+    display: none;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+}

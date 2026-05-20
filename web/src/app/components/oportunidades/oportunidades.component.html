@@ -1,0 +1,74 @@
+<section class="oportunidades">
+
+  <h2 class="section-title">Oportunidades | hasta 70% OFF</h2>
+
+  <div class="carousel-wrapper">
+
+    <!-- Flecha izquierda -->
+    <button class="arrow arrow-left" (click)="prev()" aria-label="Anterior">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    </button>
+
+    <!-- Tarjetas -->
+    <div class="cards-track">
+      @for (producto of productos; track producto.nombre; let i = $index) {
+        <div class="card">
+
+          <!-- Badge descuento -->
+          <div class="badge">{{ producto.descuento }}% OFF</div>
+
+          <!-- Imagen -->
+          <div class="card-image">
+            <img [src]="producto.imagen" [alt]="producto.nombre" />
+          </div>
+
+          <!-- Colores -->
+          <div class="color-dots">
+            @for (color of producto.colores; track color) {
+              <span class="dot" [ngStyle]="{ background: color }"></span>
+            }
+          </div>
+
+          <!-- Info -->
+          <div class="card-info">
+            <p class="product-name">{{ producto.nombre }}</p>
+            <p class="precio-original">${{ formatPrice(producto.precioOriginal) }}</p>
+            <p class="precio-oferta">
+              ${{ formatPrice(producto.precioOferta) }}
+              <span class="descuento-tag">{{ producto.descuento }}% OFF</span>
+            </p>
+            <p class="cuotas">3 x ${{ cuotas(producto.precioOferta) }} sin interés</p>
+            <p class="transferencia">${{ precioTransferencia(producto.precioOferta) }} con Transferencia o depósito</p>
+            <button class="btn-comprar">Comprar</button>
+          </div>
+
+        </div>
+      }
+    </div>
+
+    <!-- Flecha derecha -->
+    <button class="arrow arrow-right" (click)="next()" aria-label="Siguiente">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"/>
+      </svg>
+    </button>
+
+  </div>
+
+  <!-- Dots indicadores -->
+  <div class="dots">
+    @for (producto of productos; track producto.nombre; let i = $index) {
+      <button
+        class="dot-btn"
+        [class.dot-active]="i === currentIndex()"
+        (click)="goTo(i)"
+        [attr.aria-label]="'Ir al producto ' + (i + 1)"
+      ></button>
+    }
+  </div>
+
+</section>
