@@ -1,0 +1,16 @@
+import { Router } from 'express';
+import { ProductosController } from '../controllers/productos.controller';
+
+const router = Router();
+const controller = new ProductosController();
+
+// Publicos
+router.get('/',    (req, res) => controller.getAll(req, res));
+router.get('/:id', (req, res) => controller.getById(req, res));
+
+// Admin (se protegeran con auth middleware mas adelante)
+router.post('/',    (req, res) => controller.create(req, res));
+router.put('/:id',  (req, res) => controller.update(req, res));
+router.delete('/:id', (req, res) => controller.delete(req, res));
+
+export default router;
